@@ -1,0 +1,34 @@
+@keyframes inOut { /*Keyframes a custom fade in/out animation*/
+    0%, 100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.welcome {
+    user-select: none; /*Can't highlight or hover text within the class*/
+    font-family: Arial, Helvetica, sans-serif;
+    /*Accurately centering the items*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /**/
+    transition: opacity 1s ease, visibility 1s ease;
+    background-color: navajowhite;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+}
+
+.welcome p {
+    animation: inOut 2s infinite;
+}
