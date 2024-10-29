@@ -1,4 +1,3 @@
 <div align="center">
-# html-wiyudev
-<p>All updates to my website project will be posted here</p>
+<h1>All updates to my website project will be posted here</h1>
 </div>
