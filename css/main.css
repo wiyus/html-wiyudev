@@ -7,9 +7,38 @@
         opacity: 1;
     }
 }
+@keyframes upSlide {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes rightSlide {
+    0% {
+        width: 100vw;
+    }
+    100% {
+        width: 0;
+    }
+}
 
 .welcome {
-    user-select: none; /*Can't highlight or hover text within the class*/
+    user-select: none; /*User can't highlight or hover text within the class*/
     font-family: Arial, Helvetica, sans-serif;
     /*Accurately centering the items*/
     display: flex;
@@ -22,12 +51,40 @@
     top: 0;
     left: 0;
     /**/
+    background-color:#f0c684;
     transition: opacity 1s ease, visibility 1s ease;
-    background-color: navajowhite;
-    margin: 0;
-    padding: 0;
+}
+
+.welcome h1 {
+    color:#98493c;
 }
 
 .welcome p {
     animation: inOut 2s infinite;
+    color: #9d5043;
+}
+
+.page h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+.page a {
+    text-decoration: none;
+    color:#45967b;
+}
+
+.welcome.h h1 {
+    animation: upSlide 0.7s forwards;
+}
+
+.welcome.h p {
+    animation: fadeOut 0.3s forwards;
+    animation-delay: 0.3s;
+}
+
+.welcome.h {
+    animation: rightSlide 1s forwards;
+    animation-delay: 0.6s;
 }
