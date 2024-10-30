@@ -1,45 +1,77 @@
 @keyframes inOut { /*Keyframes a custom fade in/out animation*/
-    0%, 100% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
+    0%, 100% {opacity: 0;}
+    50% {opacity: 1;}
 }
-@keyframes upSlide {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
+@keyframes fadeUp {
+    0% {transform: translateY(0); opacity: 1;}
+    100% {transform: translateY(-100%); opacity: 0;}
 }
+
+@keyframes popDown {
+    0% {transform: translateY(-100%); opacity: 0;}
+    100% {transform: translateY(0); opacity: 1;}
+}
+
 @keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
+    0% {opacity: 1;}
+    100% {opacity: 0;}
 }
 
 @keyframes rightSlide {
-    0% {
-        width: 100vw;
-    }
-    100% {
-        width: 0;
-    }
+    0% {width: 100vw;}
+    100% {width: 0;}
+}
+
+@keyframes downSlide {
+    0% {height: 0px;}
+    100% {height: 10%;}
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.header {
+    position: sticky;
+    background-color: #35374b;
+    overflow: hidden;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-100%);
+}
+
+.header-left {
+    position: absolute;
+    left: 16px; /* Aligns the left element */
+    color: white;
+}
+
+.header-middle {
+    display: flex;
+    justify-content: center;
+    flex: 1; 
+    color:#78A083;
+}
+
+.header a {
+    padding: 22px 48px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-family:"Poppins";
+    font-size: 18px;
+
+}
+
+.logo {
+    float: left;
 }
 
 .welcome {
     user-select: none; /*User can't highlight or hover text within the class*/
-    font-family: Arial, Helvetica, sans-serif;
     /*Accurately centering the items*/
     display: flex;
     justify-content: center;
@@ -51,21 +83,20 @@
     top: 0;
     left: 0;
     /**/
-    background-color:#f0c684;
+    background-color:#35374B;
     transition: opacity 1s ease, visibility 1s ease;
 }
 
 .welcome h1 {
-    color:#98493c;
+    color:#78A083;
 }
 
 .welcome p {
     animation: inOut 2s infinite;
-    color: #9d5043;
+    color: #50727B;
 }
 
 .page h1 {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     text-align: center;
 }
@@ -76,7 +107,7 @@
 }
 
 .welcome.h h1 {
-    animation: upSlide 0.7s forwards;
+    animation: fadeUp 0.7s forwards;
 }
 
 .welcome.h p {
@@ -88,3 +119,11 @@
     animation: rightSlide 1s forwards;
     animation-delay: 0.6s;
 }
+
+.header.active {
+    animation: popDown 1s forwards;
+    animation-delay: 1s;
+}
+
+
+
