@@ -3,24 +3,41 @@
     <head>
         <title>home | wiyu.dev</title>
         <link rel="stylesheet" href="css/main.css">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     </head>
 
     <body>
         <section>
-            <div class="welcome" onclick="hideWelc()">
+            <div class="welcome" onclick="start()">
                 <h1>welcome to wiyu.dev</h1>
                 <p>press anywhere to begin</p>
             </div>
         </section>
 
-        <section class="page">
-            <h1>this page is open-source on <a href="https://github.com/wiyus/html-wiyudev">github</a></h1>
-        </section>
-    </body>
+        <header>
+            <div class="header">
+                <div class="header-left">
+                    <a href="#" class="logo">WIYU.DEV</a>
+                </div>
 
+                <div class="header-middle">
+                    <a href="#">home</a>
+                    <a href="#">portfolio</a>
+                    <a href="#">projects</a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="page">
+                <h1>this page is open-source on <a href="https://github.com/wiyus/html-wiyudev">github</a></h1>
+            </section>
+        </main>
+    </body>
+    
     <script>
-        function hideWelc() {
+        function start() {
             document.querySelector('.welcome').classList.add('h');
+            document.querySelector('.header').classList.add('active');
         }
     </script>
 </html>
