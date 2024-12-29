@@ -1,40 +1,50 @@
-@keyframes inOut { /*Keyframes a custom fade in/out animation*/
-    0%, 100% {opacity: 0;}
-    50% {opacity: 1;}
+/* Keyframes */
+@keyframes inOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
 }
+
 @keyframes fadeUp {
-    0% {transform: translateY(0); opacity: 1;}
-    100% {transform: translateY(-100%); opacity: 0;}
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100%); opacity: 0; }
 }
 
 @keyframes popDown {
-    0% {transform: translateY(-100%); opacity: 0;}
-    100% {transform: translateY(0); opacity: 1;}
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes fadeOut {
-    0% {opacity: 1;}
-    100% {opacity: 0;}
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
-@keyframes rightSlide {
-    0% {width: 100vw;}
-    100% {width: 0;}
+@keyframes upSlide {
+    0% { height: 100vw; }
+    100% { height: 0; }
 }
 
 @keyframes downSlide {
-    0% {height: 0px;}
-    100% {height: 10%;}
+    0% { height: 0px; }
+    100% { height: 10%; }
 }
 
+@keyframes hideElement {
+    0% { display: flex; }
+    99% { display: flex; }
+    100% { display: none; }
+}
+
+/* Body */
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
 }
 
+/* Header */
 .header {
     position: sticky;
-    background-color: #35374b;
+    background-color: #c09bd800;
     overflow: hidden;
     top: 0;
     display: flex;
@@ -45,85 +55,138 @@ body {
 
 .header-left {
     position: absolute;
-    left: 16px; /* Aligns the left element */
-    color: white;
 }
 
 .header-middle {
     display: flex;
     justify-content: center;
-    flex: 1; 
-    color:#78A083;
+    flex: 1;
 }
 
 .header a {
     padding: 22px 48px;
-    color: white;
+    color: #C09BD8;
     text-decoration: none;
     text-align: center;
-    font-family:"Poppins";
+    font-family: "Poppins";
     font-size: 18px;
+    transition: color 0.5s ease;
+    position: relative;
+}
 
+.header a:hover {
+    color: #9F84BD;
+}
+
+.header a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background-color: #9F84BD;
+    transition: width 0.5s ease;
+}
+
+.header a:hover::after {
+    width: 100%;
 }
 
 .logo {
     float: left;
 }
 
+/* Welcome */
 .welcome {
-    user-select: none; /*User can't highlight or hover text within the class*/
-    /*Accurately centering the items*/
+    user-select: none;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100%;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    /**/
-    background-color:#35374B;
+    background-color: #ffffff;
     transition: opacity 1s ease, visibility 1s ease;
 }
 
-.welcome h1 {
-    color:#78A083;
+.welcome .wh {
+    font-size: 7em;
+    color: #9F84BD;
+    margin-bottom: 0.1em;
 }
 
-.welcome p {
+.welcome p:not(.wh) {
     animation: inOut 2s infinite;
-    color: #50727B;
+    font-size: 3em;
+    color: #C09BD8;
+    margin-top: 0.2em;
 }
 
-.page h1 {
-    font-size: 20px;
-    text-align: center;
-}
-
-.page a {
-    text-decoration: none;
-    color:#45967b;
-}
-
-.welcome.h h1 {
+.welcome.h .wh {
     animation: fadeUp 0.7s forwards;
 }
 
-.welcome.h p {
+.welcome.h p:not(.wh) {
     animation: fadeOut 0.3s forwards;
     animation-delay: 0.3s;
 }
 
 .welcome.h {
-    animation: rightSlide 1s forwards;
-    animation-delay: 0.6s;
+    animation: upSlide 1s forwards, hideElement 0.1s forwards;
+    animation-delay: 0.6s, 1.6s;
 }
 
+/* Page */
+.top-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; 
+    width: 100vw;  
+    box-sizing: border-box; 
+}
+
+.top-page p {
+    font-size: 3em;
+    text-align: center;
+}
+
+.top-page a {
+    text-decoration: none;
+    color: #EBC3DB;
+    transition: color 0.5s ease;
+}
+
+.top-page a:hover {
+    color: #C09BD8;
+}
+
+.about {
+    display: flex;
+    background-color: #E6E4CE;
+    color: #613b77;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; 
+    width: 100vw;  
+    box-sizing: border-box; 
+}
+
+.about p {
+    font-size: 3em;
+    text-align: center;
+}
+
+.about a:hover {
+    color: #C09BD8;
+}
+
+/* Header Active */
 .header.active {
     animation: popDown 1s forwards;
     animation-delay: 1s;
 }
-
-
-
